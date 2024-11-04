@@ -19,19 +19,50 @@ header {
 }
 
 .logo img {
-    height: 50px;
+    width: 100px; /* Ajuste o tamanho do logo conforme necessário */
+    vertical-align: middle;
+    border-radius: 15%; 
+    box-shadow: 0 px 10px rgba(0, 0, 0, 0.2); /* Sombra para dar destaque */
 }
+
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 15px;
+    gap: 20px;
+}
+
+nav ul li {
+    position: relative;
 }
 
 nav ul li a {
     color: #333;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
+    font-size: 1.1em;
+    padding: 8px 12px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #9406ccda; 
+    transform: translateY(-3px);
+}
+
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #9406ccda;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
 }
 
 .social-icons a img {
@@ -44,7 +75,7 @@ main {
     justify-content: center;
     align-items: center;
     min-height: 80vh;
-    background-color: #0071bb;
+    background: linear-gradient(135deg, #b3c7e6, #e0e7ff);
 }
 
 .content {
@@ -84,12 +115,21 @@ main {
 }
 
 button {
-    background-color: #005d99;
+    background-color: #4A5CDB;
     color: white;
-    padding: 10px 20px;
+    padding: 12px 24px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #3A4CB1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
 }
 
 .video-section iframe {
@@ -153,4 +193,34 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.homepage-content {
+    text-align: center;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.social-icons a img {
+    height: 20px;
+    margin-left: 10px;
+    transition: transform 0.3s, filter 0.3s;
+}
+
+.social-icons a:hover img {
+    transform: scale(2.0);
+    filter: brightness(1.5);
 }
